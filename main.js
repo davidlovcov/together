@@ -1,5 +1,5 @@
-let nooblyDate = new Date("09/11/2024");
-let realDate = new Date("09/29/2024");
+let nooblyDate = new Date("09/11/2024 " + "03:00");
+let realDate = new Date("09/29/2024 " + "12:00");
 let currentDate;
 
 let timeDifferenceNoobly;
@@ -41,15 +41,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } else {
             minutesTogether += " Minute und ";
         }
-        let hoursTogether = currentDate.getHours();
-        if (hoursTogether > 1 || hoursTogether == 0) {
-            hoursTogether += " Stunden, ";
+
+        let hoursTogetherNoobly = currentDate.getHours() - nooblyDate.getHours();
+        if (hoursTogetherNoobly > 1 || hoursTogetherNoobly == 0) {
+            hoursTogetherNoobly += " Stunden, ";
         } else {
-            hoursTogether += " Stunde, ";
+            hoursTogetherNoobly += " Stunde, ";
         }
 
-        hoursTogetherNooblyText.textContent = hoursTogether + minutesTogether + secondsTogether;
-        hoursTogetherRealText.textContent = hoursTogether + minutesTogether + secondsTogether;
+        let hoursTogetherReal = currentDate.getHours() - realDate.getHours();
+        if (hoursTogetherReal > 1 || hoursTogetherReal == 0) {
+            hoursTogetherReal += " Stunden, ";
+        } else {
+            hoursTogetherReal += " Stunde, ";
+        }
+
+        console.log(hoursTogetherNoobly);
+
+        hoursTogetherNooblyText.textContent = hoursTogetherNoobly + minutesTogether + secondsTogether;
+        hoursTogetherRealText.textContent = hoursTogetherReal + minutesTogether + secondsTogether;
 
         // --------------------------------------------------------------- //
 

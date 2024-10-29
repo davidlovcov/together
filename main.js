@@ -28,9 +28,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // --------------------------------------------------------------- //
         
         // Hours 
-        let hoursTogether = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds() + " Stunden"
-        hoursTogetherNooblyText.textContent = hoursTogether;
-        hoursTogetherRealText.textContent = hoursTogether;
+        let secondsTogether = currentDate.getSeconds();
+        if (secondsTogether > 1 || secondsTogether == 0) {
+            secondsTogether += " Sekunden";
+        } else {
+            secondsTogether += " Sekunde";
+        }
+
+        let minutesTogether = currentDate.getMinutes();
+        if (minutesTogether > 1 || minutesTogether == 0) {
+            minutesTogether += " Minuten und ";
+        } else {
+            minutesTogether += " Minute und ";
+        }
+        let hoursTogether = currentDate.getHours();
+        if (hoursTogether > 1 || hoursTogether == 0) {
+            hoursTogether += " Stunden, ";
+        } else {
+            hoursTogether += " Stunde, ";
+        }
+
+        hoursTogetherNooblyText.textContent = hoursTogether + minutesTogether + secondsTogether;
+        hoursTogetherRealText.textContent = hoursTogether + minutesTogether + secondsTogether;
 
         // --------------------------------------------------------------- //
 
@@ -38,17 +57,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // Noobly
         daysTogetherNoobly = parseInt(timeDifferenceNoobly / (1000 * 3600 * 24));
         if (daysTogetherNoobly % 30 > 1 || daysTogetherNoobly % 30 == 0) {
-            daysTogetherNooblyText.textContent = daysTogetherNoobly % 30 + " Tage";
+            daysTogetherNooblyText.textContent = daysTogetherNoobly % 30 + " Tage,";
         } else {
-            daysTogetherNooblyText.textContent = daysTogetherNoobly % 30 + " Tag";
+            daysTogetherNooblyText.textContent = daysTogetherNoobly % 30 + " Tag,";
         }
 
         // Real
         daysTogetherReal = parseInt(timeDifferenceReal / (1000 * 3600 * 24));
         if (daysTogetherReal % 30 > 1 || daysTogetherReal % 30 == 0) {
-            daysTogetherRealText.textContent = daysTogetherReal % 30 + " Tage";
+            daysTogetherRealText.textContent = daysTogetherReal % 30 + " Tage,";
         } else {
-            daysTogetherRealText.textContent = daysTogetherReal % 30 + " Tag";
+            daysTogetherRealText.textContent = daysTogetherReal % 30 + " Tag,";
         }
 
         // --------------------------------------------------------------- //
@@ -57,18 +76,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // Noobly
         let monthsTogetherNoobly = parseInt(daysTogetherNoobly / 30);
         if (monthsTogetherNoobly > 1 || monthsTogetherNoobly == 0) {
-            monthsTogetherNoobly += " Monate";
+            monthsTogetherNoobly += " Monate,";
         } else {
-            monthsTogetherNoobly += " Monat";
+            monthsTogetherNoobly += " Monat,";
         }
         monthsTogetherNooblyText.textContent = monthsTogetherNoobly;
 
         // Real
         let monthsTogetherReal = parseInt(daysTogetherReal / 30);
         if (monthsTogetherReal > 1 || monthsTogetherReal == 0) {
-            monthsTogetherReal += " Monate";
+            monthsTogetherReal += " Monate,";
         } else {
-            monthsTogetherReal += " Monat";
+            monthsTogetherReal += " Monat,";
         }
         monthsTogetherRealText.textContent = monthsTogetherReal;
 
@@ -78,18 +97,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // Noobly
         let yearsTogetherNoobly = parseInt(daysTogetherNoobly / 365);
         if (yearsTogetherNoobly > 1 || yearsTogetherNoobly == 0) {
-            yearsTogetherNoobly += " Jahre";
+            yearsTogetherNoobly += " Jahre,";
         } else {
-            yearsTogetherNoobly += " Jahr";
+            yearsTogetherNoobly += " Jahr,";
         }
         yearsTogetherNooblyText.textContent = yearsTogetherNoobly;
 
         // Real
         let yearsTogetherReal = parseInt(daysTogetherReal / 365);
         if (yearsTogetherReal > 1 || yearsTogetherReal == 0) {
-            yearsTogetherReal += " Jahre";
+            yearsTogetherReal += " Jahre,";
         } else {
-            yearsTogetherReal += " Jahr";
+            yearsTogetherReal += " Jahr,";
         }
         yearsTogetherRealText.textContent = yearsTogetherReal;
 
